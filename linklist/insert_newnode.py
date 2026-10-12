@@ -42,6 +42,34 @@ class sll:
                 return
             pre.next=temp.next
             temp=None
+    def reverse(self):
+        curr=self.head
+        prev=None
+        while(curr):
+            nextnode=curr.next
+            curr.next=prev
+            prev=curr
+            curr=nextnode
+        self.head=prev
+    def findmid_del(self):
+        temp=temp1=self.head
+        while temp1 and temp1.next:
+            prev=temp
+            temp=temp.next
+            temp1=temp1.next.next
+        print("middle node:", temp.data)
+        prev.next=temp.next
+        temp=None
+    def delfirst_last(self):
+        temp1=self.head
+        temp1=None
+        prev=None
+        temp=self.head=self.head.next
+        while(temp.next):
+            prev=temp
+            temp=temp.next
+        prev.next=None
+        temp=None
     def print(self):
         temp=self.head
         while(temp):
@@ -58,5 +86,11 @@ list1.append(node(40))
 # list1.insert(node(45),2)
 # list1.insert(node(50),5)
 # list1.print()
-list1.delete(40)
+# list1.delete(40)
+list1.append(node(40))
+list1.append(node(50))
+list1.append(node(45))
+# list1.reverse()
+# list1.findmid_del()
+list1.delfirst_last()
 list1.print()
